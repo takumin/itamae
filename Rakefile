@@ -39,6 +39,7 @@ namespace :spec do
 
       desc "Run docker"
       task :boot do
+        DockerImage.pull(TEST_IMAGE)
         sh "docker run --privileged -d --name #{container_name} #{TEST_IMAGE} /sbin/init"
       end
 

@@ -31,6 +31,7 @@ module HttpbinServer
   end
 
   def start
+    DockerImage.pull(IMAGE)
     create_network
     remove_container # drop any stale container from a previous run
     run! 'docker', 'run', '-d', '--name', CONTAINER,
