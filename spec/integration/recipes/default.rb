@@ -10,12 +10,23 @@ end
 include_recipe "./included.rb"
 include_recipe "./included.rb" # including the same recipe is expected to be skipped.
 
+group "create itamae group" do
+  gid 123
+  groupname "itamae"
+end
+
 user "create itamae user" do
   uid 123
+  gid 123
   username "itamae"
   password "$1$ltOY8bZv$iZ57f1KAp8jwKViNm3pze."
   home '/home/foo'
   shell '/bin/sh'
+end
+
+group "update itamae group" do
+  gid 1234
+  groupname "itamae"
 end
 
 user "update itamae user" do

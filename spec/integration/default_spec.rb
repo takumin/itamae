@@ -12,6 +12,11 @@ describe user("itamae_system") do
   it { should be_is_system_user }
 end
 
+describe group("itamae") do
+  it { should exist }
+  it { should have_gid 1234 }
+end
+
 describe group("itamae_system") do
   it { should exist }
   it { should be_is_system_group }
